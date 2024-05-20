@@ -1,7 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
-@import "primeicons/primeicons.css";
 
+/* Colors */
+$primary-color: #333752;
+$secondary-color: #A1A7C4;
+$light-color: #ECF2FF;
+$success-color: #06A561;
+$info-color: #1E5EFF;
+$warning-color: #ffc107;
+$danger-color: #dc3545;
 
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+*{ 
+    font-family: 'Inter';
+} 
+
+    	
+/* Text Styles */
+.text-Primary {
+    color: $primary-color !important
+}
+
+.text-Secondary {
+    color: $secondary-color !important
+}
+
+.text-Success {
+    color: $success-color !important
+}
+
+.text-Info {
+    color: $info-color !important
+}   
+
+.text-Warning {
+    color: $warning-color !important
+}	
+
+.text-Danger {
+    color: $danger-color !important
+}   
+
+/* Background Colors */
+.bg-Primary {
+    background-color: $primary-color !important
+}   
+
+.bg-Secondary {
+    background-color: $light-color !important   
+}
+
+.bg-Light {
+    background-color: #FFF !important
+}
+
+.bg-Success {
+    background-color: $success-color !important
+}   
+
+.bg-Info {
+    background-color: $info-color !important
+}
+
+.bg-Warning {
+    background-color: $warning-color !important
+}   
+
+.bg-Danger {
+    background-color: $danger-color !important
+}
 
