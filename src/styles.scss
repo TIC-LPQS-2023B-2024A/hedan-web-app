@@ -3,6 +3,7 @@
 /* Colors */
 $primary-color: #333752;
 $secondary-color: #a1a7c4;
+$auxiliary-color: #ECF2FF;
 $light-color: #f5f6fa;
 $success-color: #06a561;
 $info-color: #1e5eff;
@@ -93,4 +94,69 @@ $danger-color: #dc3545;
   background-color: $light-color;
   color: $primary-color;
   border-radius: 5px !important; 
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: $secondary-color;
+  color: $light-color;
+  border: $secondary-color;
+  &:hover {
+    background-color: $info-color;
+    color: $light-color;
+  }
+}
+
+.btn-secondary {
+  background-color: $primary-color;
+  color: $light-color;
+  border: 0px;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+/* Form Styles */
+.form-container {
+    height: 500px;
+    width: 719px;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.form-control {
+  color: $secondary-color;
+
+  &::placeholder {
+    color: $secondary-color;
+  }
+}
+
+.form-label {
+  color: $primary-color;
+  margin-bottom: 5px;
+}
+
+/* Table Styles */
+.table {
+
+
+  th {
+    background-color: $auxiliary-color;
+    border: 2px solid $light-color;
+    color: $primary-color;
+  }
+
+  td {
+    color: $primary-color;
+    vertical-align: middle;
+    align-items: center;
+  }
+}
+
+/* Content Styles */
+.content {
+  background-color: $auxiliary-color;
 }
