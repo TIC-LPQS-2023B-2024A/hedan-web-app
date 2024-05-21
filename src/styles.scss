@@ -2,72 +2,95 @@
 
 /* Colors */
 $primary-color: #333752;
-$secondary-color: #A1A7C4;
-$light-color: #ECF2FF;
-$success-color: #06A561;
-$info-color: #1E5EFF;
+$secondary-color: #a1a7c4;
+$light-color: #f5f6fa;
+$success-color: #06a561;
+$info-color: #1e5eff;
 $warning-color: #ffc107;
 $danger-color: #dc3545;
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css?family=Inter');
+@import url("https://fonts.googleapis.com/css?family=Inter");
 
-*{ 
-    font-family: 'Inter';
-} 
+* {
+  font-family: "Inter";
+}
 
-    	
 /* Text Styles */
 .text-Primary {
-    color: $primary-color !important
+  color: $primary-color !important;
+}
+
+.text-light {
+  color: $light-color !important;
 }
 
 .text-Secondary {
-    color: $secondary-color !important
+  color: $secondary-color !important;
 }
 
 .text-Success {
-    color: $success-color !important
+  color: $success-color !important;
 }
 
 .text-Info {
-    color: $info-color !important
-}   
+  color: $info-color !important;
+}
 
 .text-Warning {
-    color: $warning-color !important
-}	
+  color: $warning-color !important;
+}
 
 .text-Danger {
-    color: $danger-color !important
-}   
+  color: $danger-color !important;
+}
 
 /* Background Colors */
 .bg-Primary {
-    background-color: $primary-color !important
-}   
-
-.bg-Secondary {
-    background-color: $light-color !important   
+  background-color: $primary-color !important;
 }
 
-.bg-Light {
-    background-color: #FFF !important
+.bg-Secondary {
+  background-color: $light-color !important;
 }
 
 .bg-Success {
-    background-color: $success-color !important
-}   
+  background-color: $success-color !important;
+}
 
 .bg-Info {
-    background-color: $info-color !important
+  background-color: $info-color !important;
 }
 
 .bg-Warning {
-    background-color: $warning-color !important
-}   
-
-.bg-Danger {
-    background-color: $danger-color !important
+  background-color: $warning-color !important;
 }
 
+.bg-Danger {
+  background-color: $danger-color !important;
+}
+
+/* Item Styles */
+.op-item :hover {
+  background-color: $primary-color;
+  color: $info-color;
+}
+
+/* Template Styles */
+.btn-template {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: $primary-color;
+  color: $light-color;
+  
+}
+
+.btn-template:hover {
+  background-color: $light-color;
+  color: $primary-color;
+  border-radius: 5px !important; 
+}
