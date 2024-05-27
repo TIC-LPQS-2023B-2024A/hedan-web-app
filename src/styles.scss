@@ -71,3 +71,93 @@ $danger-color: #dc3545;
     background-color: $danger-color !important
 }
 
+<<<<<<< Updated upstream
+=======
+/* Item Styles */
+.op-item :hover {
+  background-color: $primary-color;
+  color: $info-color;
+}
+
+/* Template Styles */
+.btn-template {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: $primary-color;
+  color: $light-color;
+  
+}
+
+.btn-template:hover {
+  background-color: $light-color;
+  color: $primary-color;
+  border-radius: 5px !important; 
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: $secondary-color;
+  color: $light-color;
+  border: $secondary-color;
+  &:hover {
+    background-color: $info-color;
+    color: $light-color;
+  }
+}
+
+.btn-secondary {
+  background-color: $primary-color;
+  color: $light-color;
+  border: 0px;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+/* Form Styles */
+.form-container {
+    height: auto;
+    width: 719px;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.form-control {
+  color: $secondary-color;
+  margin-bottom: 5px;
+  &::placeholder {
+    color: $secondary-color;
+  }
+}
+
+.form-label {
+  color: $primary-color;
+  margin-bottom: 5px;
+}
+
+/* Table Styles */
+.table {
+  th {
+    background-color: $auxiliary-color;
+    border: 2px solid $light-color;
+    color: $primary-color;
+  }
+
+  td {
+    color: $primary-color;
+    vertical-align: middle;
+    align-items: center;
+  }
+}
+
+/* Content Styles */
+.content {
+  background-color: $auxiliary-color;
+}
+>>>>>>> Stashed changes
