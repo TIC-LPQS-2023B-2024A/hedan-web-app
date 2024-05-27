@@ -1,0 +1,135 @@
+<div
+  class="card d-flex justify-content-center align-items-center form-container"
+>
+  <p class="text-Primary text-center fs-4 mb-0">
+    <strong>Información del paciente</strong>
+  </p>
+  <form action="" [formGroup]="Questionnarieform" (ngSubmit)="createPatient()">
+    <div>
+      <label for="name" class="form-label">Nombre:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        aria-describedby="name"
+        placeholder="Ingrese el nombre del paciente"
+        formControlName="name"
+      />
+    </div>
+    <div class="alert alert-danger mt-2 rounded" *ngIf="name.invalid && name.touched">
+      El nombre debe tener entre 3 y 50 caracteres y solo debe contener letras.
+    </div>
+
+    <div>
+      <label for="date" class="form-label">Fecha de nacimiento:</label>
+      <input
+        type="date"
+        class="form-control"
+        id="date"
+        aria-describedby="Birth date"
+        placeholder="Selecciona la fecha de nacimiento"
+        formControlName="date"
+      />
+    </div>
+    <div class="alert alert-danger mt-2 rounded" *ngIf="date.invalid && date.touched">
+      La fecha es obligatoria (se recomienda utilizar el test en niños de 6 a 8
+      años de edad).
+    </div>
+
+    <div>
+      <label for="gender" class="form-label d-block">Género:</label>
+      <div class="input-group">
+        <select
+          id="gender"
+          name="gender"
+          class="form-control"
+          formControlName="gender"
+        >
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>
+        <span class="input-group-text"
+          ><i class="bi bi-caret-down-fill"></i
+        ></span>
+      </div>
+    </div>
+    <div
+      class="alert alert-danger mt-2 rounded"
+      *ngIf="gender.touched && gender.invalid"
+    >
+      El género es obligatorio
+    </div>
+
+    <div>
+      <label for="schoolGrade" class="form-label d-block">Grado escolar:</label>
+      <div class="input-group">
+        <select
+          id="schoolGrade"
+          name="schoolGrade"
+          class="form-control"
+          formControlName="schoolGrade"
+        >
+          <option value="1ro Básica">1ro Básica</option>
+          <option value="2do Básica">2do Básica</option>
+          <option value="3ro Básica">3ro Básica</option>
+          <option value="4to Básica">4to Básica</option>
+        </select>
+        <span class="input-group-text"
+          ><i class="bi bi-caret-down-fill"></i
+        ></span>
+      </div>
+    </div>
+    <div
+      class="alert alert-danger mt-2 rounded"
+      *ngIf="schoolGrade.touched && schoolGrade.invalid"
+    >
+      El grado escolar es obligatorio
+    </div>
+
+    <div>
+      <label for="reason" class="form-label d-block">Motivo del test:</label>
+      <div class="input-group">
+        <select
+          id="reason"
+          name="reason"
+          class="form-control"
+          formControlName="reason"
+        >
+          <option value="Consulta">Consulta general</option>
+          <option value="Dificultad en relaciones">
+            Dificultad en relaciones sociales
+          </option>
+          <option value="Problemas de salud">Problemas de salud física</option>
+          <option value="Transiciones">
+            Transiciones personales importantes
+          </option>
+        </select>
+        <span class="input-group-text"
+          ><i class="bi bi-caret-down-fill"></i
+        ></span>
+      </div>
+    </div>
+    <div class="alert alert-danger rounded" *ngIf="reason.invalid && reason.touched">
+      El motivo es obligatorio
+    </div>
+
+    <div>
+      <label for="sender" class="form-label">Remitente:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="sender"
+        aria-describedby="remitente"
+        placeholder="Ingrese el remitente"
+        formControlName="sender"
+      />
+    </div>
+    <div class="alert alert-danger rounded" *ngIf="sender.invalid && sender.touched">
+      El remitente es obligatorio
+    </div>
+
+    <div class="text-center mt-3">
+      <button type="submit" class="btn btn-primary" [disabled]="Questionnarieform.invalid">Guardar</button>
+    </div>
+  </form>
+</div>
