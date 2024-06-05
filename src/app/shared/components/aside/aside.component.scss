@@ -1,3 +1,30 @@
+.custom-hide {
+  display: none;
+}
+
+/* Show text at 962px and above */
+@media (min-width: 962px) {
+  .custom-hide {
+    display: inline;
+  }
+}
+
+@media (max-width: 961.98px) {
+  aside {
+    width: 100%;
+  }
+  .btn-template {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media (min-width: 962px) {
+  aside {
+    width: 250px;
+  }
+}
+
 aside {
   width: 15vw;
   height: 100%;

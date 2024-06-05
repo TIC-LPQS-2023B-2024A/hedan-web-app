@@ -96,6 +96,12 @@ $danger-color: #dc3545;
   border-radius: 5px !important; 
 }
 
+.op-item-activated {
+  background-color: $light-color;
+  color: $primary-color;
+  border-radius: 5px !important; 
+}
+
 /* Button Styles */
 .btn-primary {
   background-color: $secondary-color;
@@ -120,8 +126,8 @@ $danger-color: #dc3545;
 
 /* Form Styles */
 .form-container {
-    height: 500px;
-    width: 719px;
+    height: max-content;
+    width: 100%;
     padding: 25px;
     border-radius: 20px;
 }

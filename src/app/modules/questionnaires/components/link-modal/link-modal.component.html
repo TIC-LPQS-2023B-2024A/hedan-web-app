@@ -1,4 +1,5 @@
 <div
+  id="linkModal"
   class="card link-container d-flex justify-content-center align-items-center text-Primary pt-2 pb-2 rounded"
 >
   <button
@@ -10,32 +11,24 @@
     src="../../../../../assets/images/SucessBadge.jpg"
     alt="Éxito al generar el test"
   />
-  <p class="fs-5 mb-1"><strong>Enlace al juego</strong></p>
-  <a
-    href="http://localhost:4200/quiz"
-    class="text-decoration-none text-Primary mb-2"
-    >https://localhost:4200/quiz</a
-  >
+  <p class="fs-5 mb-1"><strong>Sesión de test creada</strong></p>
+
   <button class="btn btn-primary" (click)="copyLink()">Copiar enlace</button>
 </div>
 
 <div *ngIf="isLinkCopied" class="modal fade show" tabindex="-1" z-index="2">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-body">
-        Enlace copiado al portapapeles
-      </div>
+      <div class="modal-body">Enlace copiado al portapapeles</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="isLinkCopied = false">Cerrar</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="isLinkCopied = false"
+        >
+          Cerrar
+        </button>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-

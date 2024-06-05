@@ -1,9 +1,10 @@
 <div class="content">
   <p class="text-Primary fs-4"><strong>Generación de Test CMASR-2</strong></p>
 
-  <app-questionnarie-form (formSubmitted)="onFormSubmitted()"></app-questionnarie-form>
+  <app-questionnarie-form (formSubmitted)="onFormSubmitted($event)"></app-questionnarie-form>
 
-  <app-link-modal *ngIf="isModalVisible" (close)="onCloseContainer()"></app-link-modal>
+  <app-link-modal *ngIf="isModalVisible" (close)="onCloseContainer()" [link]="link"></app-link-modal>
   
 </div>
  
+
