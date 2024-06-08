@@ -1,0 +1,14 @@
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.table tbody td {
+  padding: 0.75rem;
+  vertical-align: top;
+}
+

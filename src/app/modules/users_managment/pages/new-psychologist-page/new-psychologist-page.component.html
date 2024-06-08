@@ -1,2 +1,6 @@
-<h1 class="text-center">Nuevo psicólogo</h1>
-<app-psychologist-form (formSubmit)="onCreateSubmit($event)"></app-psychologist-form>
+<div class="content">
+  <p class="text-Primary fs-4"><strong>Agregar nuevo psicólogo</strong></p>
+
+  <app-questionnarie-form (formSubmitted)="onFormSubmitted()"></app-questionnarie-form>
+
+</div>

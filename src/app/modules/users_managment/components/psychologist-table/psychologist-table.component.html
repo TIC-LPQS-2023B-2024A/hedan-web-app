@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="search-bar input-group">
+    <span class="input-group-text"><i class="bi bi-search"></i></span>
+    <input
+      id="searchInput"
+      type="text"
+      class="form-control"
+      placeholder="Buscar por nombre"
+    />
+  </div>
+
+  <table class="table text-center mt-2">
+    <thead class="thead">
+      <tr>
+        <th>N°</th>
+        <th>Cédula</th>
+        <th>Nombre</th>
+        <th>Género</th>
+        <th>Correo</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let psychologist of filteredPsychologists">
+        <td>{{ psychologist.number }}</td>
+        <td>{{ psychologist.cedula }}</td>
+        <td>
+          <i class="bi bi-person fs-3"></i>
+          {{ psychologist.nombre }}
+        </td>
+        <td>{{ psychologist.genero }}</td>
+        <td>{{ psychologist.correo }}</td>
+        <td>
+          <a class="text-info text-decoration-none" href="">
+            <i class="bi bi-pencil fs-4"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
