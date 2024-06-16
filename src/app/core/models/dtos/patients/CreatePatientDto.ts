@@ -5,6 +5,6 @@ export interface CreatePatientDto {
     sex: Sex;
     birthdate: Date;
     scholar_grade: number;
-    reason: string;
-    sender: string;
+    test_reason: string;
+    test_sender: string;
 }

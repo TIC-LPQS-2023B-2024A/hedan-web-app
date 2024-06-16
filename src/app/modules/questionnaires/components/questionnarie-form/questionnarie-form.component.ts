@@ -31,10 +31,10 @@ export class QuestionnarieFormComponent {
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z\s]+$/),
+        Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/),
       ],
     ],
-    date: ['', [Validators.required, dateRangeValidator(6, 8)]],
+    date: ['', [Validators.required, dateRangeValidator(6, 9)]],
     gender: ['', [Validators.required]],
     schoolGrade: ['', [Validators.required]],
     reason: ['', [Validators.required]],
@@ -44,7 +44,7 @@ export class QuestionnarieFormComponent {
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(50),
-        Validators.pattern(/^[a-zA-Z0-9\s.,!?\-']+$/),
+        Validators.pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/),
       ],
     ],
   });
@@ -81,8 +81,8 @@ export class QuestionnarieFormComponent {
       sex: this.gender.value,
       birthdate: this.date.value,
       scholar_grade: this.schoolGrade.value,
-      reason: this.reason.value,
-      sender: this.sender.value,
+      test_sender: this.sender.value,
+      test_reason: this.reason.value,
     };
 
     this.formSubmitted.emit(patientData);
