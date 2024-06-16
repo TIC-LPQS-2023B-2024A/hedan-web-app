@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderAsideComponent } from './shared/layouts/header-aside/header-aside.component';
+import { TemplateComponent } from './shared/layouts/template/template.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderAsideComponent],
+  imports: [ReactiveFormsModule, RouterOutlet, TemplateComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'hedan-web-app';
