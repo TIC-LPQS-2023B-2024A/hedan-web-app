@@ -22,6 +22,7 @@
           La cedula es obligatoria y debe ser válida (10 dígitos).
         </div>
       </div>
+
       <div>
         <label for="name" class="form-label">Nombre:</label>
         <input
@@ -40,17 +41,17 @@
         </div>
       </div>
       <div>
-        <label for="gender" class="form-label d-block">Género:</label>
+        <label for="sex" class="form-label d-block">Género:</label>
         <div class="input-group">
           <select
-            id="gender"
+            id="sex"
             class="form-control"
-            formControlName="gender"
+            formControlName="sex"
             placeholder="Seleccione el género"
           >
             <option value="" disabled selected>Seleccione el género</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Femenino">Femenino</option>
+            <option value="m">Masculino</option>
+            <option value="f">Femenino</option>
           </select>
           <span class="input-group-text"
             ><i class="bi bi-caret-down-fill"></i
@@ -58,11 +59,30 @@
         </div>
         <div
           class="alert alert-danger mt-2 rounded"
-          *ngIf="gender.touched && gender.invalid"
+          *ngIf="sex.touched && sex.invalid"
         >
           El género es obligatorio.
         </div>
       </div>
+
+
+      <div>
+        <label for="email" class="form-label">Correo:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          placeholder="Ingrese el correo"
+          formControlName="email"
+        />
+        <div
+          class="alert alert-danger mt-2 rounded"
+          *ngIf="email.invalid && email.touched"
+        >
+          El correo es obligatorio y debe ser válida.
+        </div>
+      </div>
+
 
       <div>
         <label for="password" class="form-label">Contraseña:</label>

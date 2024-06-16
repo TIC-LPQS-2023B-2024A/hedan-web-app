@@ -6,6 +6,7 @@
       type="text"
       class="form-control"
       placeholder="Buscar por nombre"
+      (input)="onSearchChange($event)"
     />
   </div>
 
@@ -17,21 +18,20 @@
         <th>Nombre</th>
         <th>Género</th>
         <th>Correo</th>
-        <th>Editar</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let psychologist of filteredPsychologists">
-        <td>{{ psychologist.number }}</td>
+      <tr *ngFor="let psychologist of filteredPsychologists; let i = index">
+        <td>{{ i + 1 }}</td>
         <td>{{ psychologist.cedula }}</td>
         <td>
           <i class="bi bi-person fs-3"></i>
-          {{ psychologist.nombre }}
+          {{ psychologist.name }}
         </td>
-        <td>{{ psychologist.genero }}</td>
-        <td>{{ psychologist.correo }}</td>
+        <td>{{ psychologist.sex === 'm' ? 'Masculino' : 'Femenino' }}</td>
+        <td>{{ psychologist.email }}</td>
         <td>
-          <a class="text-info text-decoration-none" href="">
+          <a class="text-info text-decoration-none" (click)="editPsychologist(psychologist.cedula)">
             <i class="bi bi-pencil fs-4"></i>
           </a>
         </td>

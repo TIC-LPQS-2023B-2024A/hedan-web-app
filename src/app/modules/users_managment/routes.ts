@@ -17,8 +17,15 @@ export const routes: Routes = [
       {
         path: 'nuevo-psicologo',
         loadComponent: () =>
-          import('./pages/new-psychologist-page/new-psychologist-page.component').then(
+          import('./pages/new_psychologist_page/new-psychologist-page.component').then(
             m => m.NewPsychologistComponent
+          ),
+      },
+      {
+        path: 'actualizar-psicologo/:cedula',
+        loadComponent: () =>
+          import('./pages/update_psychologist_page/update-psychologist-page.component').then(
+            m => m.UpdatePsychologistPageComponent
           ),
       },
       {

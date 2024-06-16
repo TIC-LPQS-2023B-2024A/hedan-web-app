@@ -32,7 +32,7 @@ export class LoginPageComponent {
         this.sessionService.role = loginDto.role;
         switch (loginDto.role) {
           case 'admin':
-            this.router.navigate(['/administracion']);
+            this.router.navigate(['/administracion/lista-psicologos']);
             break;
           case 'psychologist':
             this.router.navigate(['/dashboard']);

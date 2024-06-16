@@ -8,6 +8,8 @@ import {
 import { cedulaValidator } from './psychologist-form.validators';
 import { CommonModule } from '@angular/common';
 import { CreatePsychologistDto } from '../../../../core/models/rest/dtos/psychologist/create-psychologist.dto';
+import { UserManagementService } from '../../../../core/services/user-management/user-management.service';
+import { UpdatePsychologistDto } from '../../../../core/models/rest/dtos/psychologist/update-psychologist.dto';
 
 @Component({
   selector: 'app-questionnarie-form',
@@ -16,9 +18,9 @@ import { CreatePsychologistDto } from '../../../../core/models/rest/dtos/psychol
   templateUrl: './psychologist-form.component.html',
   styleUrl: './psychologist-form.component.scss',
 })
-export class PsychologistFormComponent{
-  @Output() formSubmitted = new EventEmitter<CreatePsychologistDto>();
-
+export class PsychologistFormComponent {
+  @Output() formSubmittedEvent: EventEmitter<CreatePsychologistDto> =
+    new EventEmitter<CreatePsychologistDto>();
 
   hidePassword: boolean = true;
 
@@ -26,13 +28,7 @@ export class PsychologistFormComponent{
 
   // Form validation
   Questionnarieform = this.formBuilder.group({
-    cedula: [
-      '',
-      [
-        Validators.required,
-        cedulaValidator(),
-      ],
-    ],
+    cedula: ['', [Validators.required, cedulaValidator()]],
     name: [
       '',
       [
@@ -42,9 +38,12 @@ export class PsychologistFormComponent{
         Validators.pattern(/^[a-zA-Z\s]+$/),
       ],
     ],
-    gender: ['', [Validators.required]],
-    email: ['', [Validators.email,Validators.required]],
-    password : ['', [Validators.required, Validators.minLength(8), Validators.maxLength(20)]]
+    sex: ['', [Validators.required]],
+    email: ['', [Validators.email, Validators.required]],
+    password: [
+      '',
+      [Validators.required, Validators.minLength(8), Validators.maxLength(20)],
+    ],
   });
 
   //Getters
@@ -59,30 +58,28 @@ export class PsychologistFormComponent{
     return this.Questionnarieform.get('email') as FormControl;
   }
 
-  get gender() {
-    return this.Questionnarieform.get('gender') as FormControl;
+  get sex() {
+    return this.Questionnarieform.get('sex') as FormControl;
   }
 
   get password() {
     return this.Questionnarieform.get('password') as FormControl;
   }
 
-
   // Create patient
   createPsychologist() {
     // Send data
     if (this.Questionnarieform.valid) {
-
-
-      console.log(this.Questionnarieform.value);
-      this.formSubmitted.emit();
+      this.formSubmittedEvent.emit(
+        this.Questionnarieform.value as CreatePsychologistDto,
+      );
+    } else {
+      console.log('Formulario inválido', this.Questionnarieform.value);
     }
   }
+
 
   togglePasswordVisibility(): void {
     this.hidePassword = !this.hidePassword;
   }
-
-
-
 }
