@@ -1,0 +1,122 @@
+.login-container {
+  background-color: #ECF2FF;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.login-card {
+  display: flex;
+  max-width: 600px; /* Adapt to full width on all devices */
+  height: auto; /* Allow form to adjust height */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: auto; /* Center form on page */
+}
+
+.mb-4 {
+  align-items: left;
+  text-align: left;
+}
+.mb-3 {
+  align-items: left;
+  text-align: left;
+}
+.login-image {
+  width: 45%; /* Ensure image covers container on all devices */
+  height: auto; /* Set a fixed height for image (adjust as needed) */
+  object-fit: cover;
+}
+
+.login-form-container {
+  width: 55%; /* Form takes full width on all devices */
+  background-color: #fff;
+  padding: 2rem; /* Adjust padding as needed */
+  align-items: center;
+  text-align: center;
+}
+
+.img-fluid {
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  text-align: center;
+  color: #333752;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.text-second {
+  color: #A1A7C4;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.input-group .form-control {
+  border-right: 0;
+  padding: 0.5rem 0.75rem;
+}
+
+.input-group .input-group-text {
+  background-color: #fff;
+  border-left: 0;
+  border-radius: 0 0.25rem 0.25rem 0;
+  font-size: 1.2em;
+  line-height: 1.5;
+  padding: 0.53rem 0.7rem;
+}
+
+.input-group .pi {
+  font-size: 1.2em;
+}
+
+.form-label {
+  color: #333752;
+}
+
+.btn-primary {
+  border-color: #A1A7C4;
+  &:hover {
+    border-color: #1E5EFF;
+  }
+  max-width: 200px;
+  text-align: center;
+  align-items: center;
+}
+
+.btn.btn-pssword {
+  border-radius: 0.25rem;
+  padding: 0px 0px;
+  margin: 0px 0px;
+  border-width: 0px;
+}
+
+.pi {
+  color: #A1A7C4;
+}
+
+/* Media Queries for Responsive Behavior */
+@media (max-width: 768px) {
+  .login-card {
+    text-align: center;
+    width: 100%;
+    padding: 5% 10%;
+    height: auto;
+    align-items: center;
+    .login-form-container {
+      align-items: center;
+      width: 100%;
+      padding: 10% 5%;
+      border-radius: 20px;
+    }
+  }
+
+  .login-image {
+    display: none; /* Hide image on mobile */
+  }
+}

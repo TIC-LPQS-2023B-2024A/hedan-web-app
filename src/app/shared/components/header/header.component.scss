@@ -1,0 +1,31 @@
+.custom-hide {
+    display: none;
+  }
+  
+  /* Show text at 962px and above */
+  @media (min-width: 962px) {
+    .custom-hide {
+      display: inline;
+    }
+  }
+  
+  @media (max-width: 961.98px) {
+    header {
+      width: 100%;
+    }
+    .btn-template {
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+header{
+    width: 100vw;
+    height: 8vh; 
+    display: flex; 
+    flex-direction: row;
+}
+
+.btn-header:hover{
+    color: aqua;
+}

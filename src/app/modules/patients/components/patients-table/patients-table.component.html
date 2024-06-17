@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div class="search-bar input-group">
+    <span class="input-group-text"><i class="bi bi-search"></i></span>
+
+    <input
+      id="searchInput"
+      type="text"
+      class="form-control"
+      placeholder="Buscar por nombre"
+      (input)="filterTable($event)"
+    />
+  </div>
+
+  <table class="table text-center mt-2">
+    <thead class="thead">
+      <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Género</th>
+        <th>Grado escolar</th>
+        <th>Resultados</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of filteredPatients">
+        <td>
+            <i class="bi bi-person fs-3"></i>
+          <!-- Icono de usuario -->
+          {{ patient.nombre }}
+        </td>
+        <td>{{ patient.edad }}</td>
+        <td>{{ patient.genero }}</td>
+        <td>{{ patient.gradoEscolar }}</td>
+        <td>
+          <a class="text-Info text-decoration-none" href="">
+            <i class="bi bi-eye fs-4"></i> 
+            
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
