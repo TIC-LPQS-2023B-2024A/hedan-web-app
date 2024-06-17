@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { LoginFormComponent } from '../../components/login/login.component';
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { SessionService } from '../../../../core/services/auth/session.service';
@@ -20,46 +20,62 @@ export class LoginPageComponent {
     private authService: AuthService,
     private userManagementService: UserManagementService,
     private sessionService: SessionService,
-    private router: Router
-  ) {
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {}
 
-  }
-
-  login(loginDto: LoginRequestDto){
+  login(loginDto: LoginRequestDto) {
     const loggedUserData: UserData = {} as UserData;
 
-    this.authService.login(loginDto)
-    .pipe(
-      switchMap(() => this.userManagementService.getCurrentUser()),
-      switchMap((userData) => {
-        loggedUserData.role = userData.role;
-        loggedUserData.cedula = userData.cedula;
-        if(loggedUserData.cedula !== null) {
-          return this.userManagementService.getByIdPsychologist(loggedUserData.cedula);
-        }
-        return of(null);
-      }),
-      switchMap((psychologistData) => {
-        if(psychologistData !== null) {
-          loggedUserData.name = psychologistData.name;
-          return of(loggedUserData);
-        }
-        loggedUserData.name = "Admin";
-        return of(null);
-      })
-    )
-    .subscribe({
-      next: () => {
-        this.sessionService.userData = loggedUserData;
-        switch (this.sessionService.userData.role) {
-          case 'admin':
-            this.router.navigate(['/administracion/lista-psicologos']);
-            break;
-          case 'psychologist':
-            this.router.navigate(['/dashboard']);
-            break;
-        }
-      }
-  })
+    this.authService
+      .login(loginDto)
+      .pipe(
+        switchMap(() => this.userManagementService.getCurrentUser()),
+        switchMap((userData) => {
+          loggedUserData.role = userData.role;
+          loggedUserData.cedula = userData.cedula;
+          if (loggedUserData.cedula !== null) {
+            return this.userManagementService.getByIdPsychologist(
+              loggedUserData.cedula,
+            );
+          }
+          return of(null);
+        }),
+        switchMap((psychologistData) => {
+          if (psychologistData !== null) {
+            loggedUserData.name = psychologistData.name;
+            return of(loggedUserData);
+          }
+          loggedUserData.name = 'Admin';
+          return of(null);
+        }),
+      )
+      .subscribe({
+        next: () => {
+          this.sessionService.userData = loggedUserData;
+
+          const queryParams: Params = {};
+          this.route.snapshot.queryParamMap.keys.forEach((key) => {
+            if (key !== 'returnUrl') {
+              queryParams[key] = this.route.snapshot.queryParamMap.get(key)!;
+            }
+          });
+          const queryReturnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+          const dashboardRoute = '/dashboard';
+          const adminRoute = '/administracion/lista-psicologos';
+
+          let nextUrl = '';
+          if (queryReturnUrl !== null) {
+            nextUrl = queryReturnUrl;
+          } else {
+            nextUrl =
+              this.sessionService.userData!.role === 'admin'
+                ? adminRoute
+                : dashboardRoute;
+          }
+
+          this.router.navigate([nextUrl]);
+        },
+      });
   }
 }
