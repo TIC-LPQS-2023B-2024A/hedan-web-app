@@ -13,6 +13,12 @@ $danger-color: #dc3545;
 /* Fonts */
 @import url("https://fonts.googleapis.com/css?family=Inter");
 
+/* Icons*/
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+
 * {
   font-family: "Inter";
 }
@@ -87,7 +93,6 @@ $danger-color: #dc3545;
   border: none;
   background-color: $primary-color;
   color: $light-color;
-  
 }
 
 .btn-template:hover {

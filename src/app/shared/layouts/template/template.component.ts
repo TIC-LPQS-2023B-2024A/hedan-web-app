@@ -11,6 +11,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './template.component.html',
   styleUrl: './template.component.scss'
 })
-export class TemplateComponent {
-  
-}
+export class TemplateComponent { }
