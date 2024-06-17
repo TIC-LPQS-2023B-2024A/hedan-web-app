@@ -20,6 +20,15 @@ jobs:
         
       # Deploy to Firebase Hosting
       - uses: actions/checkout@v4
+      - name: Set back end API_URL
+        uses: dominicwatson/github-action-envsubst@v1
+        with:
+          files: src/environments/environment.ts
+          patterns: $BACKEND_WEB_APP_API
+        env:
+          BACKEND_WEB_APP_API: ${{ vars.BACKEND_WEB_APP_API }}
+        
+      # Deploy to Firebase Hosting
       - run: npm ci && npm run build:prod
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
