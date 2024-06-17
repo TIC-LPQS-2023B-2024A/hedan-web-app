@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { SessionService } from '../../../core/services/auth/session.service';
 
 @Component({
   selector: 'app-aside',
@@ -9,5 +10,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './aside.component.scss'
 })
 export class AsideComponent {
-  
+  protected userRole: string = '';
+
+  constructor(private sessionService: SessionService) {
+  }
+
+  ngOnInit() {
+    this.userRole = this.sessionService.userData!.role;
+  }
 }

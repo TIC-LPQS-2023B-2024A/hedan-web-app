@@ -5,6 +5,7 @@ import { environment } from '../../../../environments/environment';
 import { CreatePsychologistDto } from '../../models/rest/dtos/psychologist/create-psychologist.dto';
 import { UpdatePsychologistDto } from '../../models/rest/dtos/psychologist/update-psychologist.dto';
 import { GetPsychologistDto } from '../../models/rest/dtos/psychologist/get-psychologist.dto';
+import { UserData } from '../../models/session/user-data';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,12 @@ export class UserManagementService {
   }
 
   getByIdPsychologist(cedula: string): Observable<GetPsychologistDto> {
-    const url = `${this.userManagementUrl}/psychologists/${cedula}?psychologist_cedula=${cedula}`;
+    const url = `${this.psychologistUrl}/${cedula}`;
     return this.http.get<GetPsychologistDto>(url,{ withCredentials: true });
+  }
+
+  getCurrentUser(): Observable<UserData> {
+    const url = `${this.userManagementUrl}/me`;
+    return this.http.get<UserData>(url, {withCredentials: true});
   }
 }

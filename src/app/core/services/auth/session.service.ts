@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UserData } from '../../models/session/user-data';
 
 @Injectable({
   providedIn: 'root',
@@ -6,18 +7,21 @@ import { Injectable } from '@angular/core';
 export class SessionService {
   constructor() {}
 
+  private _userData: UserData | null = null;
+
   get isAuthenticated(): boolean {
-    return localStorage.getItem('isAuthenticated') === 'true';
+    return this._userData !== null;
   }
 
-  get role(): string {
-    return localStorage.getItem('role') ?? '';
-  }
-  set role(role: string) {
-    localStorage.setItem('role', role);
+  get userData(): UserData | null {
+    return this._userData;
   }
 
-  set isAuthenticated(isAuthenticated: boolean) {
-    localStorage.setItem('isAuthenticated', isAuthenticated.toString());
+  set userData(userData: UserData) {
+    this._userData = userData;
+  }
+
+  logout() {
+    this._userData = null;
   }
 }
