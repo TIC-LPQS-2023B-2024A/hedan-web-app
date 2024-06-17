@@ -109,9 +109,9 @@ $danger-color: #dc3545;
 
 /* Button Styles */
 .btn-primary {
-  background-color: $secondary-color;
+  background-color: $primary-color;
   color: $light-color;
-  border: $secondary-color;
+  border: 0px;
   &:hover {
     background-color: $info-color;
     color: $light-color;
@@ -119,12 +119,13 @@ $danger-color: #dc3545;
 }
 
 .btn-secondary {
-  background-color: $primary-color;
-  color: $light-color;
+  background-color: $secondary-color;
+  color: black;
   border: 0px;
   justify-content: center;
   align-items: center;
   &:hover {
+    background-color: $auxiliary-color;
     color: $secondary-color;
   }
 }
