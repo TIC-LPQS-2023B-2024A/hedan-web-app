@@ -93,13 +93,18 @@ $danger-color: #dc3545;
   border: none;
   background-color: $primary-color;
   color: $light-color;
-
 }
 
 .btn-template:hover {
   background-color: $light-color;
   color: $primary-color;
-  border-radius: 5px !important;
+  border-radius: 5px !important; 
+}
+
+.op-item-activated {
+  background-color: $light-color;
+  color: $primary-color;
+  border-radius: 5px !important; 
 }
 
 /* Button Styles */
@@ -126,8 +131,8 @@ $danger-color: #dc3545;
 
 /* Form Styles */
 .form-container {
-    height: 500px;
-    width: 719px;
+    height: max-content;
+    width: 100%;
     padding: 25px;
     border-radius: 20px;
 }

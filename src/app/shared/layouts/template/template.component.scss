@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100vh;
 }
+
 .app-header {
   flex: 1;
 }
@@ -10,12 +11,14 @@
 .content {
   display: flex;
   flex: 1;
-
+  
 }
+
 .app-aside {
-  width: 20vw;
+  width: 20vw; 
   border: 1px solid red;
 }
+
 .main-content {
   flex: 1;
   padding: 20px;

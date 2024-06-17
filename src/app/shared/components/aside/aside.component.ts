@@ -1,21 +1,13 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-aside',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './aside.component.html',
   styleUrl: './aside.component.scss'
 })
 export class AsideComponent {
-  isMobile: boolean = false;
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.isMobile = window.innerWidth < 768;
-  }
-
-  ngOnInit() {
-    this.isMobile = window.innerWidth < 768;
-  }
+  
 }

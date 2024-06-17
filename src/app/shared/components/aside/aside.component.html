@@ -1,14 +1,28 @@
 <aside>
-  <nav class="nav flex-column bg-Primary text-light ps-3 pe-3 pt-4 pb-4 flex-grow-1 ">
-
-      <button class="btn-template">
-          <i class="bi bi-house fs-5 "></i>
-          <span class="ms-2">Psicólogos</span>
-      </button>
-      <button class="btn-template">
-          <i class="bi bi-people fs-5"></i>
-          <span class="ms-2">Pacientes</span>
-      </button>
-
-  </nav>
-</aside>
+    <nav class="nav flex-column bg-Primary text-light p-3 flex-grow-1">
+      <a class="btn-template btn text-start w-100 mb-2" routerLink="/dashboard" routerLinkActive="op-item-activated">
+        <i class="bi bi-house fs-5"></i>
+        <span class="ms-2 custom-hide">Dashboard</span>
+      </a>
+      <a class="btn-template btn text-start w-100 mb-2" routerLink="/pacientes" routerLinkActive="op-item-activated">
+        <i class="bi bi-people fs-5"></i>
+        <span class="ms-2 custom-hide">Pacientes</span>
+      </a>
+      <a class="btn-template btn text-start w-100 mb-2" routerLink="/cuestionario/nuevo" routerLinkActive="op-item-activated">
+        <i class="bi bi-card-checklist fs-5"></i>
+        <span class="ms-2 custom-hide">Generar test</span>
+      </a>
+      <a class="btn-template btn text-start w-100 mb-2" routerLink="/cuestionario/resultado" routerLinkActive="op-item-activated">
+        <i class="bi bi-folder-check fs-5"></i>
+        <span class="ms-2 custom-hide">Resultados</span>
+      </a>
+      <a class="btn-template btn text-start w-100 mb-2" routerLink="/administracion/lista-psicologos" routerLinkActive="op-item-activated">
+        <i class="bi bi-people fs-5"></i>
+        <span class="ms-2 custom-hide">Psicólogos</span>
+      </a>
+      <a class="btn-template btn text-start w-100 mt-auto border-top rounded-0 pt-3" routerLink="/">
+        <i class="bi bi-box-arrow-left fs-5"></i>
+        <span class="ms-2 custom-hide">Cerrar sesión</span>
+      </a>
+    </nav>
+  </aside>
