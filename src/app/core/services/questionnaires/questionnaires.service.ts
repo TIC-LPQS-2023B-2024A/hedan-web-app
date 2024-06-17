@@ -14,7 +14,7 @@ export class QuestionnairesService {
 
   getInvitationLink(childId: number, psychologistCedula: string): Observable<string>{
     const url = `${this.questionnariesUrl}/token/${childId}/${psychologistCedula}`;
-    return this.http.get<string>(url);
+    return this.http.get<string>(url, { withCredentials: true });
   }
 
 }

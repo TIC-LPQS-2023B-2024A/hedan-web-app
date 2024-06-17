@@ -13,8 +13,8 @@ export class PatientsService {
   constructor(private http: HttpClient) { }
 
   addChild(psychologistCedula: string, patient: CreatePatientDto): Observable<number>{
-    const url = `${this.patientsUrl}/${psychologistCedula}/add_child`;
-    return this.http.post<number>(url, patient);
+    const url = `${this.patientsUrl}/${psychologistCedula}/children`;
+    return this.http.post<number>(url, patient, { withCredentials: true });	
   }
 
 }
