@@ -9,6 +9,7 @@ $success-color: #06a561;
 $info-color: #1e5eff;
 $warning-color: #ffc107;
 $danger-color: #dc3545;
+$chart-color: #ffffff;
 
 /* Fonts */
 @import url("https://fonts.googleapis.com/css?family=Inter");
@@ -98,13 +99,13 @@ $danger-color: #dc3545;
 .btn-template:hover {
   background-color: $light-color;
   color: $primary-color;
-  border-radius: 5px !important; 
+  border-radius: 5px !important;
 }
 
 .op-item-activated {
   background-color: $light-color;
   color: $primary-color;
-  border-radius: 5px !important; 
+  border-radius: 5px !important;
 }
 
 /* Button Styles */
@@ -171,4 +172,162 @@ $danger-color: #dc3545;
 /* Content Styles */
 .content {
   background-color: $auxiliary-color;
+}
+
+/* Filter Styles */
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  background-color: $chart-color;
+  padding: 0px 10px 0px 10px;
+  border-radius: 10px;
+  margin:  0px 10px 0px 10px;
+  justify-content: space-between;
+}
+
+.filter-title {
+  color: $primary-color;
+  margin-bottom: 10px;
+  font-size: 12px;
+
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px 10px 0px;
+  padding: 0px 10px 0px 10px;
+  background-color: $chart-color;
+
+  i {
+    color: $info-color;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .filter-label {
+    color: $primary-color;
+    margin-right: 10px;
+    background-color: $chart-color;
+    font-size: 12px;
+  }
+
+  .filter-select {
+    padding: 5px 10px;
+    border: 1px solid $auxiliary-color;
+    border-radius: 5px;
+    color: $primary-color;
+    background-color: $chart-color;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 12px;
+
+    &:hover,
+    &:focus {
+      border-color: $info-color ;
+      box-shadow: 0 0 3px $primary-color  ;
+      outline: none;
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .filter-container {
+    padding: 0px 10px 0px 10px;
+  }
+  .filter-container{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-item {
+    flex-direction: row;
+    align-items: flex-start;
+
+    .filter-label {
+      margin-bottom: 5px;
+    }
+
+    .filter-select {
+      width: 100%;
+    }
+  }
+}
+
+
+/* Charts Styles */
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $chart-color;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.chart{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $chart-color;
+  border-radius: 10px;
+  align-content: center;
+}
+
+.title-chart{
+  background-color: $primary-color;
+  color: white;
+  width: 100%;
+  height: 30px;
+  border-radius: 10px 10px 0px 0px;
+  display: flex;  // Añade flexbox
+  align-items: center;  // Centra verticalmente
+  justify-content: center;  // Centra horizontalmente
+  text-align: center;  // Asegura que el texto esté centrado
+}
+
+
+.responsive-hr {
+  border: none; /* Elimina el borde predeterminado */
+  border-top: 2px solid $primary-color; /* Añade una línea superior */
+  margin: 20px 0; /* Espacio alrededor de la línea */
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+}
+
+.chart-two{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $chart-color;
+  border-radius: 10px;
+  align-content: center;
+}
+
+/* Info Icon styles */
+
+.info-icon {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.info-icon .info-text {
+  display: none;
+  position: absolute;
+  top: 20px;
+  left: -50%;
+  z-index: 1;
+  background-color: #333;
+  color: white;
+  width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.info-icon:hover .info-text {
+  display: block;
 }

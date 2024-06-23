@@ -1,0 +1,49 @@
+@import '../../../../../../styles.scss';
+
+.incorrect-questionnaires-list {
+  p {
+    font-size: 14px;
+    color: $primary-color;
+    padding: 0px 10px 0px 10px;
+
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0px 10px 0px 10px;
+
+    li {
+      padding: 10px;
+      margin: 5px 0;
+      background-color: $auxiliary-color;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: $secondary-color;
+        color: $chart-color;
+      }
+
+      &:active {
+        background-color: $primary-color;
+        color: $chart-color;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .incorrect-questionnaires-list {
+    background-color: white;
+    ul {
+      li {
+        font-size: 12px;
+      }
+    }
+    border-radius: 10px;
+    padding: 0px 0px 10px 0px;
+  }
+}
