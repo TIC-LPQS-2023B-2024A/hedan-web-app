@@ -1,0 +1,24 @@
+<div class="chart-container">
+  <ngx-charts-linear-gauge
+  [view]="view"
+  [scheme]="colorScheme"
+  [value]="value"
+  [previousValue]="previousValue"
+  (select)="onSelect($event)"
+  (activate)="onActivate($event)"
+  (deactivate)="onDeactivate($event)"
+  [units]="units"
+  [min]="min"
+  [max]="max"
+  >
+</ngx-charts-linear-gauge>
+</div>
+
+<div class="incorrect-questionnaires-list">
+  <p>Listado</p>
+  <ul>
+    <li *ngFor="let item of incorrectQuestionnaires" (click)="navigateToResult(item.child_id)">
+      Child ID: {{ item.child_id }}
+    </li>
+  </ul>
+</div>
