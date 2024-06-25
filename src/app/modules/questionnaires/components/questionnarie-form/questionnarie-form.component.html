@@ -95,12 +95,12 @@
           class="form-control"
           formControlName="reason"
         >
-          <option value="Consulta">Consulta general</option>
-          <option value="Dificultad en relaciones">
+          <option value="Consulta general">Consulta general</option>
+          <option value="Dificultad en relaciones sociales">
             Dificultad en relaciones sociales
           </option>
-          <option value="Problemas de salud">Problemas de salud física</option>
-          <option value="Transiciones">
+          <option value="Problemas de salud física">Problemas de salud física</option>
+          <option value="Transiciones personales importantes">
             Transiciones personales importantes
           </option>
         </select>
@@ -130,6 +130,9 @@
 
     <div class="text-center mt-3">
       <button type="submit" class="btn btn-primary" [disabled]="Questionnarieform.invalid">Guardar</button>
+    </div>
+    <div class="alert alert-danger rounded" *ngIf="Questionnarieform.invalid && Questionnarieform.touched">
+      Revise que los valores ingresados sean correctos y que todos los campos estén llenos. 
     </div>
   </form>
 </div>

@@ -18,26 +18,39 @@
         <th>Edad</th>
         <th>Género</th>
         <th>Grado escolar</th>
+        <th>Fecha del test</th>
         <th>Resultados</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="patientTableBody">
       <tr *ngFor="let patient of filteredPatients">
         <td>
-            <i class="bi bi-person fs-3"></i>
-          <!-- Icono de usuario -->
-          {{ patient.nombre }}
+          <i class="bi bi-person fs-3"></i>
+          {{ patient.child_name }}
         </td>
-        <td>{{ patient.edad }}</td>
-        <td>{{ patient.genero }}</td>
-        <td>{{ patient.gradoEscolar }}</td>
+        <td>{{ patient.child_age }}</td>
+        <td>{{ getGender(patient.child_sex) }}</td>
+        <td>{{ getScholarGrade(patient.scholar_grade) }}</td>
+        <td [ngClass]="{ 'text-Secondary': !patient.date_time_of_answer }">
+          {{ formatDateTime(patient.date_time_of_answer) }}
+        </td>
         <td>
-          <a class="text-Info text-decoration-none" href="">
-            <i class="bi bi-eye fs-4"></i> 
-            
-          </a>
+          <ng-container *ngIf="patient.date_time_of_answer; else noAnswer">
+            <a
+              class="text-info text-decoration-none"
+              [routerLink]="['/cuestionario/resultado']"
+              [queryParams]="{ testId: patient.test_id }"
+            >
+              <i class="bi bi-eye fs-4"></i>
+            </a>
+          </ng-container>
+          <ng-template #noAnswer>
+            <span class="text-Secondary">Sin respuesta</span>
+          </ng-template>
         </td>
       </tr>
     </tbody>
   </table>
+
+
 </div>

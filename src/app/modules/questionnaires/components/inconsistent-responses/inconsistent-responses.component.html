@@ -1,1 +1,46 @@
-<p>inconsistent-responses works!</p>
+<div class="card bg-Secondary shadow-sm px-3 py-3">
+  <p class="text-Primary mt-2">
+    <strong>Indices de respuestas inconsistentes:</strong>
+  </p>
+
+  <table class="table table-striped table-responsive text-center">
+    <tr class="bg- text-Primary">
+      <th>Pares de reactivos</th>
+      <th>Añade puntuación INC</th>
+    </tr>
+    <tr class="py-3" *ngFor="let pair of inconsistentResponses?.pairs">
+      <td>
+        <span class="bg-Secondary">{{ pair.id_1 + 1 }}:</span>
+        <span class="bg-Secondary text-Secondary"
+          >{{ pair.answer_1 ? "Si" : "No" }}
+        </span>
+        <span class="bg-Secondary"> {{ pair.id_2 + 1 }}:</span>
+        <span class="bg-Secondary text-Secondary">
+          {{ pair.answer_2 ? "Si" : "No" }}</span
+        >
+      </td>
+      <td class="text-center">
+        <input type="radio" [checked]="pair.add_score === true" disabled />
+        <label class="bg-Secondary" for="yes">Si</label>
+        <input type="radio" [checked]="pair.add_score === false" disabled />
+        <label class="bg-Secondary" for="no">No</label>
+      </td>
+    </tr>
+  </table>
+
+  <div class="row d-flex justify-content-center align-items-center">
+    <span class="col-5"
+      ><strong>Número de respuestas inconsistentes:</strong></span
+    >
+    <span
+      class="col-2 rounded px-4 text-Primary text-center bg-Success"
+      [ngClass]="{
+        'bg-Danger': inconsistentResponses.inconsistency_index > 5,
+        'text-light': inconsistentResponses.inconsistency_index > 5
+      }"
+      id="total"
+    >
+      <strong>{{ inconsistentResponses.inconsistency_index }}</strong>
+    </span>
+  </div>
+</div>
