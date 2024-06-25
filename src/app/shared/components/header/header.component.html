@@ -30,28 +30,21 @@
         </button>
 
         <div class="dropdown col-4">
-          <a
-            class="nav-link dropdown-toggle text-white d-flex align-items-center"
-            href="#"
+          <a class="nav-link dropdown-toggle text-white d-flex align-items-center"
             id="navbarDropdown"
             role="button"
             data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+            aria-expanded="false">
             <i class="bi bi-person-circle fs-5"></i>
             <span class="ms-2 custom-hide">{{ userName }}</span>
           </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end bg-Primary"
-            aria-labelledby="navbarDropdown"
-          >
-            <li class="op-item">
-              <a class="dropdown-item text-light" routerLink="/logout"
-                >Cerrar sesión</a
-              >
+          <ul class="dropdown-menu dropdown-menu-end bg-Primary" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item text-light op-logout" (click)="logout()">Cerrar sesión</a>
             </li>
           </ul>
         </div>
+
       </div>
     </div>
   </div>

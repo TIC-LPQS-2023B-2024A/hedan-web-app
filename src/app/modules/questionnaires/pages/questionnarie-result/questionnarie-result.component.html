@@ -1,9 +1,61 @@
 <div class="content">
-    <p class="text-Primary fs-4"><strong>Resultado Test CMASR-2</strong></p>
-  
-    <app-patient-info></app-patient-info>
-  
-    <app-result></app-result>
+  <p class="text-Primary fs-4 mb-1"><strong>Resultado Test CMASR-2</strong></p>
 
+  <app-patient-info
+    id="patient-info"
+    [patientData]="patientInfo"
+  ></app-patient-info>
+
+  <div class="container mt-2">
+    <div class="row">
+      <div id="questions-responses" class="col bg-Secondary shadow-sm py-3">
+        <p class="text-Primary">Seleccione la clasificación de preguntas:</p>
+        <select
+          name=""
+          id=""
+          class="form-select text-Secondary"
+          (change)="onAnxietyIndexChange($event)"
+        >
+          <option value="ALL">Todas las preguntas</option>
+          <option value="DEF">Defensividad (DFS)</option>
+          <option value="FIS">Ansiedad fisiológica (FIS)</option>
+          <option value="INQ">Inquietud (INQ)</option>
+          <option value="SOC">Ansiedad social (SOC)</option>
+        </select>
+        <p class="text-Primary mt-2"><strong>Respuestas obtenidas:</strong></p>
+
+        <!-- Questions container with scroll -->
+        <div
+          id="questions-container"
+          class="questions-container"
+          *ngIf="filteredQuestions.length > 0"
+        >
+          <div
+            *ngFor="let question of filteredQuestions"
+            class="text-primary bg-Secondary px-3"
+          >
+            <app-question
+              [question]="question"
+              [id]="questions.indexOf(question)"
+              [answer]="getAnswer(questions.indexOf(question))"
+              [AnxietyIndex]="question.AnxietyIndex"
+            ></app-question>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-5 ms-1">
+        <!-- Test results -->
+        <div id="results" class="row mb-1">
+          <app-result [results]="anxietyIndex"></app-result>
+        </div>
+        <!-- Inconsistencies questions -->
+        <div id="inconsistencies" class="row">
+          <app-inconsistent-responses
+            [inconsistentResponses]="inconsistentQuestions"
+          ></app-inconsistent-responses>
+        </div>
+      </div>
+    </div>
   </div>
-  
+</div>

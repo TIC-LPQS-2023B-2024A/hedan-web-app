@@ -1,0 +1,24 @@
+<div class="text-Primary bg-Secondary px-3">
+  <p id="{{question.id}}" class="text-justify">Pregunta {{id+1}}: {{question.question}}</p>
+  <div class="row d-flex justify-content-around" >
+    <div class="col-3 d-flex align-items-center mb-2">
+      <input
+        type="radio"
+        class="me-2"
+        disabled
+        [checked]="answer === true"
+      />
+      <label for="no">Si</label>
+    </div>
+    <div class="col-3 d-flex align-items-center">
+      <input
+        type="radio"
+        id="no"
+        class="me-2"
+        [checked]="answer === false"
+        disabled
+      />
+      <label for="no">No</label>
+    </div>
+  </div>
+</div>

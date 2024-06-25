@@ -9,15 +9,15 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./pages/result/result.component').then(
-            (m) => m.ResultComponent,
+          import('./pages/new-questionnarie/new-questionnarie.component').then(
+            (m) => m.NewQuestionnarieComponent,
           ),
       },
       {
         path: 'resultado',
         loadComponent: () =>
-          import('./pages/result/result.component').then(
-            (m) => m.ResultComponent,
+          import('./pages/questionnarie-result/questionnarie-result.component').then(
+            (m) => m.QuestionnarieResultComponent,
           ),
       },
       {
