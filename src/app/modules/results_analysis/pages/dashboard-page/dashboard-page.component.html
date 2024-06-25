@@ -1,1 +1,153 @@
-<p>dashboard-page works!</p>
+<div class="content">
+  <!--<p class="text-Primary fs-3"><strong>Índice de ansiedad en niños de 6 a 8 añoss</strong></p>-->
+  <div class="charts-filter-container">
+    <div class="filter-container">
+      <app-filter (ageFilterChanged)="onAgeFilterChange($event)"></app-filter>
+      <schoolar-grade-filter
+        (schoolarGradeFilterChanged)="onSchoolarGradeFilterChange($event)"
+      ></schoolar-grade-filter>
+      <sex-filter (sexFilterChanged)="onSexFilterChange($event)"></sex-filter>
+      <div></div>
+      <schema-filter
+        (schemaFilterChanged)="onSchemaFilterChange($event)"
+      ></schema-filter>
+    </div>
+  </div>
+  <div class="charts-container">
+    <div class="charts-pie-container">
+      <div class="chart-two">
+        <h6 class="title-chart">
+          Cuestionarios respondidos
+          <div
+            class="info-icon"
+            (mouseenter)="showInfo1 = true"
+            (mouseleave)="showInfo1 = false"
+          >
+            <i class="pi pi-info-circle"></i>
+            <div class="info-text" *ngIf="showInfo1">
+              Número de cuestionarios que han sido respondidos
+            </div>
+          </div>
+        </h6>
+        <div class="d-flex">
+          <total-childs></total-childs>
+        </div>
+      </div>
+      <div class="chart">
+        <h6 class="title-chart">
+          Pacientes por grado escolar
+          <div
+            class="info-icon"
+            (mouseenter)="showInfo2 = true"
+            (mouseleave)="showInfo2 = false"
+          >
+            <i class="pi pi-info-circle"></i>
+            <div class="info-text" *ngIf="showInfo2">
+              Muestra la distribución de los pacientes según su grado de
+              escolaridad.
+            </div>
+          </div>
+        </h6>
+        <div class="d-flex">
+          <childs-by-schoolar-grade></childs-by-schoolar-grade>
+        </div>
+      </div>
+      <div class="chart">
+        <h6 class="title-chart">
+          Pacientes por género
+          <div
+            class="info-icon"
+            (mouseenter)="showInfo3 = true"
+            (mouseleave)="showInfo3 = false"
+          >
+            <i class="pi pi-info-circle"></i>
+            <div class="info-text" *ngIf="showInfo3">
+              Muestra la distribución de los pacientes según su género.
+            </div>
+          </div>
+        </h6>
+        <div class="d-flex">
+          <childs-by-sex></childs-by-sex>
+        </div>
+      </div>
+    </div>
+    <div class="charts-pie-container-two">
+      <div class="chart">
+        <h6 class="title-chart">
+          Mediana de ansiedad general
+          <div
+            class="info-icon"
+            (mouseenter)="showInfo4 = true"
+            (mouseleave)="showInfo4 = false"
+          >
+            <i class="pi pi-info-circle"></i>
+            <div class="info-text" *ngIf="showInfo4">
+              Muestra la mediana de la puntuación obtenida en cada una de las
+              subcategorías (Defensividad, Ansiedad fisiológica, Inquietud y
+              Ansiedad social), así como la mediana de la puntuación total de
+              ansiedad. La mediana se calcula utilizando todos los resultados de
+              los cuestionarios. La puntuación total se obtiene sumando las
+              puntuaciones de las cuatro subcategorías.
+            </div>
+          </div>
+        </h6>
+        <div class="d-flex">
+          <median-index></median-index>
+        </div>
+      </div>
+      <div class="chart-two">
+        <h6 class="title-chart">
+          Cuestionarios a revisar
+          <div
+            class="info-icon"
+            (mouseenter)="showInfo5 = true"
+            (mouseleave)="showInfo5 = false"
+          >
+            <i class="pi pi-info-circle"></i>
+            <div class="info-text" *ngIf="showInfo5">
+              Muestra el conteo de cuestionarios donde la puntuación del índice
+              de inconsistencia es de 6 o superior.
+            </div>
+          </div>
+        </h6>
+        <div class="d-flex">
+          <incorrect-questionnaires></incorrect-questionnaires>
+        </div>
+      </div>
+    </div>
+    <hr class="responsive-hr" />
+
+    <div class="charts-filter-container">
+      <div class="filter-container">
+        <child-id-filter
+          (childIDFilterChanged)="onChildIDFilterChange($event)"
+        ></child-id-filter>
+      </div>
+    </div>
+
+    <div class="charts-pie-container-two">
+      <div class="chart">
+        <h6 class="title-chart">
+          Ansiedad por paciente
+          <div
+            class="info-icon"
+            (mouseenter)="showInfo6 = true"
+            (mouseleave)="showInfo6 = false"
+          >
+            <i class="pi pi-info-circle"></i>
+            <div class="info-text" *ngIf="showInfo6">
+              Para cada paciente, se muestra la puntuación obtenida en las
+              cuatro subcategorías de ansiedad: Defensividad, Ansiedad
+              fisiológica, Inquietud y Ansiedad social, junto con la puntuación
+              total de ansiedad. Esta puntuación total se calcula sumando las
+              puntuaciones individuales de las cuatro subcategorías mencionadas.
+            </div>
+          </div>
+        </h6>
+        <div class="d-flex">
+          <anxiety-chart></anxiety-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

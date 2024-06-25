@@ -1,0 +1,8 @@
+<div class="filter-item">
+  <i class="pi pi-filter"></i>
+  <label for="ageFilter" class="filter-label">Edad:</label>
+  <select id="ageFilter" (change)="onAgeFilterChange($event)" class="filter-select">
+    <option value="0">Todos</option>
+    <option *ngFor="let age of uniqueAges" [value]="age">{{ age}} Años</option>
+  </select>
+</div>
