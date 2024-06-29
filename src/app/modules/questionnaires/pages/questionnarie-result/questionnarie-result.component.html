@@ -6,7 +6,7 @@
     [patientData]="patientInfo"
   ></app-patient-info>
 
-  <div class="container mt-2">
+  <div class="container mt-2 h-auto">
     <div class="row">
       <div id="questions-responses" class="col bg-Secondary shadow-sm py-3">
         <p class="text-Primary">Seleccione la clasificación de preguntas:</p>
@@ -50,10 +50,14 @@
           <app-result [results]="anxietyIndex"></app-result>
         </div>
         <!-- Inconsistencies questions -->
-        <div id="inconsistencies" class="row">
+        <div id="inconsistencies" class="row mb-1">
           <app-inconsistent-responses
             [inconsistentResponses]="inconsistentQuestions"
           ></app-inconsistent-responses>
+        </div>
+        <!-- T-index result -->
+        <div id="t-index" class="row">
+          <app-t-index-result [results]="anxietyIndex"></app-t-index-result>
         </div>
       </div>
     </div>
