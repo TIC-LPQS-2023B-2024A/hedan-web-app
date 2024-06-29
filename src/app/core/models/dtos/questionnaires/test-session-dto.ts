@@ -5,5 +5,7 @@ export interface TestSessionDto {
     scholar_grade: number
     child_sex: string
     date_time_of_answer: string
+    token: string
+    isTokenValid: boolean
   }
   

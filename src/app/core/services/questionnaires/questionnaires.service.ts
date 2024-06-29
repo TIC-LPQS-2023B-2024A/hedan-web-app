@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of, throwError } from 'rxjs';
 import { InvitationLink } from '../../models/dtos/questionnaires/invitation-link';
 import { environment } from '../../../../environments/environment';
 import { TestSessionDto } from '../../models/dtos/questionnaires/test-session-dto';
@@ -29,4 +29,14 @@ export class QuestionnairesService {
     return this.http.get<TestResult>(url, { withCredentials: true });
   }
 
+  deleteTestSession(testId: number, psychologistCedula: string): Observable<boolean> {
+    const url = `${this.questionnariesUrl}/${psychologistCedula}/${testId}`;
+    return this.http.delete(url, { observe: 'response', withCredentials: true }).pipe(
+      map((response: HttpResponse<any>) => response.status === 200),
+      catchError((error: HttpErrorResponse) => {
+        alert('Error al eliminar el test' + error);
+        return of(false);
+      })
+    );
+  }
 }
