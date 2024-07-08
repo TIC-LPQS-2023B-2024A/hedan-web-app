@@ -35,7 +35,7 @@ describe('TestReportDataService', () => {
         {
           id: 1,
           child_id: 101,
-          psychologist_cedula: '1725345860',
+          psychologist_cedula: '1234567890',
           test_session_id: 101,
           child_age: 6,
           scholar_grade: 1,
@@ -54,7 +54,7 @@ describe('TestReportDataService', () => {
         // Otros datos de prueba aquí
       ];
 
-      const cedula = '1725345860';
+      const cedula = '1234567890';
 
       service.loadTestReportData(cedula).subscribe((data) => {
         expect(data).toEqual(mockData);
@@ -114,7 +114,7 @@ describe('TestReportDataService', () => {
         {
           id: 1,
           child_id: 101,
-          psychologist_cedula: '1725345860',
+          psychologist_cedula: '1234567890',
           test_session_id: 101,
           child_age: 6,
           scholar_grade: 1,
