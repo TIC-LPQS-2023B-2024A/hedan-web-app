@@ -16,7 +16,6 @@ import { ColorSchemeService } from '../../../../../core/services/results_analisi
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'anxiety-chart',
   standalone: true,
@@ -43,19 +42,25 @@ export class AnxietyChartComponent implements OnInit, OnDestroy {
   xAxisLabel: string = 'índices de ansiedad';
   yAxisLabel: string = 'Puntuación T';
   timeline: boolean = true;
-  legendTitle: string = 'ID Paciente';
+  legendTitle: string = 'Identificador Paciente';
   legendPosition: LegendPosition = LegendPosition.Right;
   colorScheme = colorSets.find((x) => x.name === 'vivid')!;
   referenceLines: { name: string; value: number }[] = [
-    { name: '', value: 40 },
-    { name: '', value: 50 },
-    { name: '', value: 60 },
+    {
+      name: '(39 y menor) Menos problemático que la mayoría de estudiantes',
+      value: 25,
+    },
+    {
+      name: '(40-60) No más problemático que para la mayoría de estudiantes',
+      value: 40,
+    },
+    { name: '(61-70) Moderadamente problemático', value: 61 },
+    { name: '(71 y mayor) Extremadamente problemático', value: 71 },
   ];
-  yAxisTicks: number[] = [26, 28, 30, 32, 34, 36, 38, 40, 42, 44,
-    46, 48, 50, 52, 54, 56, 58, 60, 62, 64,
-    66, 68, 70, 72, 74, 76, 78, 80, 82, 84,
-    86];
-
+  yAxisTicks: number[] = [
+    26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62,
+    64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86,
+  ];
 
   dataIndexResult: any[] = []; // Aquí se almacenarán los datos para la gráfica
 
@@ -113,7 +118,7 @@ export class AnxietyChartComponent implements OnInit, OnDestroy {
 
   updateChart(): void {
     this.dataIndexResult = this.filteredData.map((item) => ({
-      name: item.child_id,
+      name: '(' + item.child_id + ') ' + item.child_name,
       series: [
         {
           value: this.getTScoreMain(
@@ -175,9 +180,18 @@ export class AnxietyChartComponent implements OnInit, OnDestroy {
   }
 
   onSelect(data: any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-    const testId = data.hasOwnProperty('value') ? data.value : data;
-    this.router.navigate(['/cuestionario/resultado'], { queryParams: { testId: testId } });
+    console.log('Item clicked cual', JSON.parse(JSON.stringify(data)));
+    const result = data.hasOwnProperty('value') ? data.value : data;
+    const match = result.match(/\((\d+)\)/);
+    const testId = match ? parseInt(match[1], 10) : null;
+
+    if (testId !== null) {
+      this.router.navigate(['/cuestionario/resultado'], {
+        queryParams: { testId: testId },
+      });
+    } else {
+      console.error('No se pudo extraer el número de la propiedad value');
+    }
   }
 
   onActivate(data: any): void {

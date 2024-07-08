@@ -18,7 +18,7 @@
   <p>Listado</p>
   <ul>
     <li *ngFor="let item of incorrectQuestionnaires" (click)="navigateToResult(item.child_id)">
-      Child ID: {{ item.child_id }}
+      Cuestionario # {{ item.id }}
     </li>
   </ul>
 </div>
