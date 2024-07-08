@@ -68,7 +68,7 @@ describe('TestReportDataService', () => {
     });
 
     // it('should handle error correctly', () => {
-    //   const cedula = '1725345860';
+    //   const cedula = '1234567890';
 
     //   service.loadTestReportData(cedula).subscribe((data) => {
     //     expect(data).toEqual([]);
