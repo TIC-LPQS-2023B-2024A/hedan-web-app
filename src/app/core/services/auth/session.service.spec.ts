@@ -18,7 +18,7 @@ describe('SessionServiceTest', () => {
   });
 
   it('should set and get userData correctly', () => {
-    const userData: UserData = { cedula: '1725345860', name: 'Anthony Simbaña', role: 'psychologist' };
+    const userData: UserData = { cedula: '1234567890', name: 'Anthony Simbaña', role: 'psychologist' };
 
     service.userData = userData;
 
@@ -26,7 +26,7 @@ describe('SessionServiceTest', () => {
   });
 
   it('should return true for isAuthenticated when userData is set', () => {
-    const userData: UserData = { cedula: '1725345860', name: 'Anthony Simbaña', role: 'Psychologist' };
+    const userData: UserData = { cedula: '1234567890', name: 'Anthony Simbaña', role: 'Psychologist' };
 
     service.userData = userData;
 
@@ -40,7 +40,7 @@ describe('SessionServiceTest', () => {
   });
 
   it('should clear userData on logout', () => {
-    const userData: UserData = { cedula: '1725345860', name: 'Anthony Simbaña', role: 'Psychologist' };
+    const userData: UserData = { cedula: '1234567890', name: 'Anthony Simbaña', role: 'Psychologist' };
 
     service.userData = userData;
     service.logout();
