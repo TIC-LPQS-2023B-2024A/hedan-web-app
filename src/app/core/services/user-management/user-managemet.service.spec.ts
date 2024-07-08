@@ -32,7 +32,7 @@ describe('UserManagementService', () => {
   describe('#addPsychologist', () => {
     it('should send a POST request to add a psychologist', () => {
       const mockPsychologist: CreatePsychologistDto = {
-        cedula: '1718269838',
+        cedula: '1234567890',
         name: 'Monica Morales',
         sex: 'f',
         email: 'monica@monica.com',
@@ -58,7 +58,7 @@ describe('UserManagementService', () => {
         password: 'securePassword',
         changePassword: false
       };
-      const mockCedula = '1718269838';
+      const mockCedula = '1234567890';
 
       service.updatePsychologist(mockUpdate, mockCedula).subscribe();
 
@@ -74,13 +74,13 @@ describe('UserManagementService', () => {
     it('should send a GET request to retrieve all psychologists', () => {
       const mockPsychologists: GetPsychologistDto[] = [
         {
-          "cedula": "1725345860",
+          "cedula": "123456789",
           "name": "Anthony Josue",
           "sex": "m",
-          "email": "anthonymales200105@gmail.com"
+          "email": "anthonymales@gmail.com"
         },
         {
-          "cedula": "1716414121",
+          "cedula": "1234567890",
           "name": "Luis Simbana",
           "sex": "m",
           "email": "luis@luis.com"
@@ -106,7 +106,7 @@ describe('UserManagementService', () => {
         "sex": "m",
         "email": "anthonymales200105@gmail.com"
       };
-      const mockCedula = '1725345860';
+      const mockCedula = '1234567890';
 
       service.getByIdPsychologist(mockCedula).subscribe((data) => {
         expect(data).toEqual(mockPsychologist);
