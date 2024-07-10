@@ -39,9 +39,13 @@ export class MedianIndexComponent implements OnInit, OnDestroy {
   legendPosition: LegendPosition = LegendPosition.Right;
   colorScheme = colorSets.find((x) => x.name === 'vivid')!;
   referenceLines: { name: string; value: number }[] = [
-    { name: '', value: 40 },
-    { name: '', value: 50 },
-    { name: '', value: 60 },
+    //{ name: '', value: 40 },
+    //{ name: '', value: 50 },
+    //{ name: '', value: 60 },
+    { name: '(39 y menor) Menos problemático que la mayoría de estudiantes', value: 25 },
+    { name: '(40-60) No más problemático que para la mayoría de estudiantes', value: 40 },
+    { name: '(61-70) Moderadamente problemático', value: 61 },
+    { name: '(71 y mayor) Extremadamente problemático', value: 71 },
   ];
 
   dataMedianIndex: any[] = []; // Aquí se almacenarán los datos para la gráfica

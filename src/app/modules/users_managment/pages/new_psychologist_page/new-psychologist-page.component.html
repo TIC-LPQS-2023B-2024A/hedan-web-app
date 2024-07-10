@@ -1,6 +1,5 @@
 <div class="content">
   <p class="text-Primary fs-4"><strong>Agregar nuevo psicólogo</strong></p>
-
+  <app-alert [message]="alertMessage" [type]="alertType"></app-alert>
   <app-questionnarie-form (formSubmittedEvent)="onFormSubmitted($event)"></app-questionnarie-form>
-
 </div>

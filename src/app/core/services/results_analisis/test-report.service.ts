@@ -23,13 +23,7 @@ export class TestReportDataService {
 
   constructor(private http: HttpClient) {}
 
-
-
   loadTestReportData(cedula: string): Observable<TestsReportDto[]> {
-    // Simula una llamada a un API para obtener los datos
-    // const testData: PsychologicalTestData[] = [ /* ... */ ];
-    // this.testDataSubject.next(testData);
-    // return this.testData$;
     const url = `${this.testsReportUrl}/${cedula}/test_reports`
     return this.http.get<TestsReportDto[]>(url, { withCredentials: true });
   }
@@ -40,6 +34,7 @@ export class TestReportDataService {
       return of(result as T);
     };
   }
+
   updateFilter(age: number): void {
     this.filterSubject.next(age);
   }

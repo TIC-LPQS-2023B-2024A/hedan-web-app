@@ -7,15 +7,20 @@ import { LoginRequestDto } from '../../../../core/models/rest/dtos/auth/login-re
 import { of, switchMap } from 'rxjs';
 import { UserManagementService } from '../../../../core/services/user-management/user-management.service';
 import { UserData } from '../../../../core/models/session/user-data';
+import { AlertComponent } from "../../../../shared/components/alert/alert.component";
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [LoginFormComponent],
+  imports: [LoginFormComponent, AlertComponent],
   templateUrl: './login.page.component.html',
   styleUrl: './login.page.component.scss',
 })
 export class LoginPageComponent {
+  alertMessage: string | null = null;
+  alertType: 'success' | 'danger' = 'danger';
+
+
   constructor(
     private authService: AuthService,
     private userManagementService: UserManagementService,
@@ -25,6 +30,10 @@ export class LoginPageComponent {
   ) {}
 
   login(loginDto: LoginRequestDto) {
+
+    this.alertMessage = null;
+    this.alertType = 'danger';
+
     const loggedUserData: UserData = {} as UserData;
 
     this.authService
@@ -51,8 +60,11 @@ export class LoginPageComponent {
         }),
       )
       .subscribe({
-        next: () => {
+        next: async() => {
           this.sessionService.userData = loggedUserData;
+          this.showAlert('Ingreso exitoso', 'success');
+          await wait(3000);
+
 
           const queryParams: Params = {};
           this.route.snapshot.queryParamMap.keys.forEach((key) => {
@@ -76,6 +88,18 @@ export class LoginPageComponent {
 
           this.router.navigate([nextUrl]);
         },
+        error: () => {
+          this.showAlert('Credenciales incorrectas, intenta nuevamente', 'danger');
+        }
       });
   }
+
+  showAlert(message: string, type: 'success' | 'danger') {
+    this.alertMessage = message;
+    this.alertType = type;
+  }
+}
+
+function wait(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
