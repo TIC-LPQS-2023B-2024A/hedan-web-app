@@ -1,0 +1,136 @@
+<div
+  class="card bg-Secondary shadow-sm d-flex justify-content-center align-items-center px-3 py-3"
+>
+  <table class="table table-striped table-responsive text-center">
+    <tr class="text-Primary">
+      <th></th>
+      <th>DFS</th>
+      <th>TOT</th>
+      <th>FIS</th>
+      <th>INQ</th>
+      <th>SOC</th>
+    </tr>
+    <tr class="py-3 border-bottom">
+      <td class="fw-bold">Puntuación natural</td>
+      <td id="dfs" class="">{{ testResults?.defensiveness_index ?? 0 }}</td>
+      <td id="tot">{{ testResults?.total_anxiety_index ?? 0 }}</td>
+      <td id="fis">{{ testResults?.physiological_anxiety_index ?? 0 }}</td>
+      <td id="inq">{{ testResults?.worry_index ?? 0 }}</td>
+      <td id="soc">{{ testResults?.social_anxiety_index ?? 0 }}</td>
+    </tr>
+    <tr class="py-3">
+      <td class="fw-bold">Puntuación T</td>
+      <td
+        id="t-dfs"
+        [ngClass]="{
+          'bg-Success': tDefScore <= 39,
+          'text-light': tDefScore > 39,
+          'bg-Info': tDefScore <= 60 && tDefScore >= 40,
+          'bg-Warning': tDefScore <= 61 && tDefScore >= 70,
+          'bg-Danger': tDefScore > 71
+        }"
+      >
+        {{ tDefScore }}
+      </td>
+      <td
+        id="t-tot"
+        [ngClass]="{
+          'bg-Success': tTotScore <= 39,
+          'text-light': tTotScore > 39,
+          'bg-Info': tTotScore <= 60 && tTotScore >= 40,
+          'bg-Warning': tTotScore <= 61 && tTotScore >= 70,
+          'bg-Danger': tTotScore > 71
+        }"
+      >
+        {{ tTotScore }}
+      </td>
+      <td
+        id="t-fis"
+        [ngClass]="{
+          'bg-Success': tFisScore <= 39,
+          'text-light': tFisScore > 39,
+          'bg-Info': tFisScore <= 60 && tFisScore >= 40,
+          'bg-Warning': tFisScore <= 61 && tFisScore >= 70,
+          'bg-Danger': tFisScore > 71
+        }"
+      >
+        {{ tFisScore }}
+      </td>
+      <td
+        id="t-inq"
+        [ngClass]="{
+          'bg-Success': tInqScore <= 39,
+          'text-light': tInqScore > 39,
+          'bg-Info': tInqScore <= 60 && tInqScore >= 40,
+          'bg-Warning': tInqScore <= 61 && tInqScore >= 70,
+          'bg-Danger': tInqScore > 71
+        }"
+      >
+        {{ tInqScore }}
+      </td>
+      <td
+        id="t-soc"
+        [ngClass]="{
+          'bg-Success': tSocScore <= 39,
+          'text-light': tSocScore > 39,
+          'bg-Info': tSocScore <= 60 && tSocScore >= 40,
+          'bg-Warning': tSocScore <= 61 && tSocScore >= 70,
+          'bg-Danger': tSocScore > 71
+        }"
+      >
+        {{ tSocScore }}
+      </td>
+    </tr>
+  </table>
+  <div
+    id="descriptions"
+    class="text-Primary d-flex flex-column w-100 ps-4 mt-2 bg-Secondary"
+  >
+    <span class="fw-bold">Descriptores de la puntuación T:</span>
+    <div class="row my-1 ps-3">
+      <input
+        type="radio"
+        id="success"
+        class="bg-Success col-2"
+        checked
+        disabled
+      />
+      <label for="success" class="col-10 text-description"
+        >Menos problemático que para la mayoría de los estudiantes (Menos de
+        40).</label
+      >
+    </div>
+    <div class="row my-1 ps-3">
+      <input type="radio" id="info" class="bg-Info col-2" checked disabled />
+      <label for="info" class="col-10 text-description"
+        >Menos problemático que para la mayoría de los estudiantes (Entre 40 y
+        60).</label
+      >
+    </div>
+    <div class="row my-1 ps-3">
+      <input
+        type="radio"
+        id="warning"
+        class="bg-Warning col-2"
+        checked
+        disabled
+      />
+      <label for="warning" class="col-10 text-description"
+        >Moderadamente problemático (Entre 61 y 70).</label
+      >
+      <span></span>
+    </div>
+    <div class="row ps-3">
+      <input
+        type="radio"
+        id="danger"
+        class="bg-Danger col-2"
+        checked
+        disabled
+      />
+      <label for="danger" class="col-10 text-description"
+        >Extremadamente problemático (71 o más).</label
+      >
+    </div>
+  </div>
+</div>

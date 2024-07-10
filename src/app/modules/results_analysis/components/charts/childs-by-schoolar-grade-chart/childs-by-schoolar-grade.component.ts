@@ -18,7 +18,7 @@ export class ChildsBySchoolarGrade implements OnInit, OnDestroy {
   nonFilteredData: TestsReportDto[] = [];
   pieChartData: any[] = [];
 
-  view: [number, number] = [320, 100];
+  view: [number, number] = [390, 100];
   gradient: boolean = true;
   showLegend: boolean = true;
   showLabels: boolean = true;

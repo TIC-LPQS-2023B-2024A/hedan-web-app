@@ -15,9 +15,10 @@ jobs:
         uses: dominicwatson/github-action-envsubst@v1
         with:
           files: src/environments/environment.ts
-          patterns: $BACKEND_WEB_APP_API
+          patterns: $BACKEND_WEB_APP_API $BACKEND_GAME_API
         env:
           BACKEND_WEB_APP_API: ${{ vars.BACKEND_WEB_APP_API }}
+          BACKEND_GAME_API: ${{ vars.BACKEND_GAME_API }}
         
       # Deploy to Firebase Hosting
       - run: npm ci && npm run build:prod

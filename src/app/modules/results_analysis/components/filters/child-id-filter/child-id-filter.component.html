@@ -1,8 +1,8 @@
 <div class="filter-item">
   <i class="pi pi-filter"></i>
-  <label for="childIDFilter" class="filter-label">Id niño:</label>
+  <label for="childIDFilter" class="filter-label">Nombre Paciente:</label>
   <select id="childIDFilter" (change)="onChildIDFilterChange($event)" class="filter-select">
     <option value="-1">Todos</option>
-    <option *ngFor="let item of testReportData" [value]="item.child_id">{{ item.child_id }}</option>
+    <option *ngFor="let item of testReportData" [value]="item.child_id">{{ item.child_name }}</option>
   </select>
 </div>

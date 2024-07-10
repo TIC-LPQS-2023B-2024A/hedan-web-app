@@ -18,6 +18,7 @@ import {
   InconsistentResponsesDTO,
   Pairs,
 } from '../../../../core/models/dtos/questionnaires/inconsistent-responses-dto';
+import { TIndexResultComponent } from '../../components/t-index-result/t-index-result/t-index-result.component';
 
 @Component({
   selector: 'app-questionnarie-result',
@@ -28,6 +29,7 @@ import {
     QuestionComponent,
     CommonModule,
     InconsistentResponsesComponent,
+    TIndexResultComponent
   ],
   templateUrl: './questionnarie-result.component.html',
   styleUrl: './questionnarie-result.component.scss',
@@ -94,9 +96,7 @@ export class QuestionnarieResultComponent implements OnInit {
 
             // Set inconsistent questions
             this.getInconsistencies();
-            console.log(this.answers[0].value);
-            console.log( this.answers[48].value );
-            console.log( this.answers[49].value );
+
           });
       } else {
         alert('No se encontró el test');
