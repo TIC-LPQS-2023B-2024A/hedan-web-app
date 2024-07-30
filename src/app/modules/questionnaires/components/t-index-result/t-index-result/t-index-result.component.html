@@ -1,6 +1,9 @@
 <div
   class="card bg-Secondary shadow-sm d-flex justify-content-center align-items-center px-3 py-3"
 >
+  <p class="text-Primary me-4">
+    <strong>Puntuación T</strong>
+  </p>
   <table class="table table-striped table-responsive text-center">
     <tr class="text-Primary">
       <th></th>
@@ -25,8 +28,8 @@
         [ngClass]="{
           'bg-Success': tDefScore <= 39,
           'text-light': tDefScore > 39,
-          'bg-Info': tDefScore <= 60 && tDefScore >= 40,
-          'bg-Warning': tDefScore <= 61 && tDefScore >= 70,
+          'bg-Info': tDefScore >= 40 && tDefScore <= 60,
+          'bg-Warning': tDefScore >= 61 && tDefScore <= 70,
           'bg-Danger': tDefScore > 71
         }"
       >
@@ -38,7 +41,7 @@
           'bg-Success': tTotScore <= 39,
           'text-light': tTotScore > 39,
           'bg-Info': tTotScore <= 60 && tTotScore >= 40,
-          'bg-Warning': tTotScore <= 61 && tTotScore >= 70,
+          'bg-Warning': tTotScore >= 61 && tTotScore <= 70,
           'bg-Danger': tTotScore > 71
         }"
       >
@@ -50,11 +53,10 @@
           'bg-Success': tFisScore <= 39,
           'text-light': tFisScore > 39,
           'bg-Info': tFisScore <= 60 && tFisScore >= 40,
-          'bg-Warning': tFisScore <= 61 && tFisScore >= 70,
-          'bg-Danger': tFisScore > 71
-        }"
+          'bg-Warning': tFisScore >= 61 && tFisScore <= 70,
+          'bg-Danger': tFisScore > 71}"
       >
-        {{ tFisScore }}
+        {{ tFisScore }}	
       </td>
       <td
         id="t-inq"
@@ -62,8 +64,7 @@
           'bg-Success': tInqScore <= 39,
           'text-light': tInqScore > 39,
           'bg-Info': tInqScore <= 60 && tInqScore >= 40,
-          'bg-Warning': tInqScore <= 61 && tInqScore >= 70,
-          'bg-Danger': tInqScore > 71
+          'bg-Warning': tInqScore >= 61 && tInqScore <= 70,
         }"
       >
         {{ tInqScore }}
@@ -74,7 +75,7 @@
           'bg-Success': tSocScore <= 39,
           'text-light': tSocScore > 39,
           'bg-Info': tSocScore <= 60 && tSocScore >= 40,
-          'bg-Warning': tSocScore <= 61 && tSocScore >= 70,
+          'bg-Warning': tSocScore >= 61 && tSocScore <= 70,
           'bg-Danger': tSocScore > 71
         }"
       >

@@ -1,6 +1,6 @@
 <div class="card bg-Secondary shadow-sm px-3 py-3">
   <p class="text-Primary mt-2">
-    <strong>Indices de respuestas inconsistentes:</strong>
+    <strong>Índices de respuestas inconsistentes:</strong>
   </p>
 
   <table class="table table-striped table-responsive text-center">
@@ -42,5 +42,13 @@
     >
       <strong>{{ inconsistentResponses.inconsistency_index }}</strong>
     </span>
+  </div>
+  <div
+    id="descriptions"
+    class="text-Primary d-flex flex-column w-100 ps-4 mt-2 bg-Secondary"
+  >
+    <span class="text-description" *ngIf="inconsistentResponses.inconsistency_index > 5">
+      <strong>Descripción:</strong> Como el indice de inconsistencia es mayor a 6, 
+      se recomienda repetir el cuestionario o emplear otros métodos de evaluación.</span>
   </div>
 </div>
