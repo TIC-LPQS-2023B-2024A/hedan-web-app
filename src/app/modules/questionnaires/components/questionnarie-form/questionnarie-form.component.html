@@ -12,11 +12,14 @@
         class="form-control"
         id="name"
         aria-describedby="name"
-        placeholder="Ingrese el nombre del paciente"
+        placeholder="Ingrese el nombre"
         formControlName="name"
       />
     </div>
-    <div class="alert alert-danger mt-2 rounded" *ngIf="name.invalid && name.touched">
+    <div
+      class="alert alert-danger mt-2 rounded"
+      *ngIf="name.invalid && name.touched"
+    >
       El nombre debe tener entre 3 y 50 caracteres y solo debe contener letras.
     </div>
 
@@ -31,13 +34,16 @@
         formControlName="date"
       />
     </div>
-    <div class="alert alert-danger mt-2 rounded" *ngIf="date.invalid && date.touched">
+    <div
+      class="alert alert-danger mt-2 rounded"
+      *ngIf="date.invalid && date.touched"
+    >
       La fecha es obligatoria (se recomienda utilizar el test en niños de 6 a 8
       años de edad).
     </div>
 
     <div>
-      <label for="gender" class="form-label d-block">Género:</label>
+      <label for="gender" class="form-label d-block">Sexo:</label>
       <div class="input-group">
         <select
           id="gender"
@@ -89,27 +95,20 @@
     <div>
       <label for="reason" class="form-label d-block">Motivo del test:</label>
       <div class="input-group">
-        <select
-          id="reason"
-          name="reason"
+        <input
+          type="text"
           class="form-control"
+          id="reason"
+          aria-describedby="remitente"
+          placeholder="Ingrese el motivo del test"
           formControlName="reason"
-        >
-          <option value="Consulta general">Consulta general</option>
-          <option value="Dificultad en relaciones sociales">
-            Dificultad en relaciones sociales
-          </option>
-          <option value="Problemas de salud física">Problemas de salud física</option>
-          <option value="Transiciones personales importantes">
-            Transiciones personales importantes
-          </option>
-        </select>
-        <span class="input-group-text"
-          ><i class="bi bi-caret-down-fill"></i
-        ></span>
+        />
       </div>
     </div>
-    <div class="alert alert-danger rounded" *ngIf="reason.invalid && reason.touched">
+    <div
+      class="alert alert-danger rounded"
+      *ngIf="reason.invalid && reason.touched"
+    >
       El motivo es obligatorio
     </div>
 
@@ -124,15 +123,28 @@
         formControlName="sender"
       />
     </div>
-    <div class="alert alert-danger rounded" *ngIf="sender.invalid && sender.touched">
+    <div
+      class="alert alert-danger rounded"
+      *ngIf="sender.invalid && sender.touched"
+    >
       El remitente es obligatorio
     </div>
 
     <div class="text-center mt-3">
-      <button type="submit" class="btn btn-primary" [disabled]="Questionnarieform.invalid">Guardar</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="Questionnarieform.invalid"
+      >
+        Guardar
+      </button>
     </div>
-    <div class="alert alert-danger rounded" *ngIf="Questionnarieform.invalid && Questionnarieform.touched">
-      Revise que los valores ingresados sean correctos y que todos los campos estén llenos. 
+    <div
+      class="alert alert-danger rounded"
+      *ngIf="Questionnarieform.invalid && Questionnarieform.touched"
+    >
+      Revise que los valores ingresados sean correctos y que todos los campos
+      estén llenos.
     </div>
   </form>
 </div>

@@ -42,5 +42,5 @@ export class PatientInfoComponent {
   
     return `${day} ${month} ${year} - ${hours}:${minutes}`; 
   }
-
+  
 }

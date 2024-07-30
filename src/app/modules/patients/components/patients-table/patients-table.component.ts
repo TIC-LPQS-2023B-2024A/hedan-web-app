@@ -4,6 +4,12 @@ import { SessionService } from '../../../../core/services/auth/session.service';
 import { RouterLink } from '@angular/router';
 import { TestSessionDto } from '../../../../core/models/dtos/questionnaires/test-session-dto';
 import { QuestionnairesService } from '../../../../core/services/questionnaires/questionnaires.service';
+<<<<<<< Updated upstream
+=======
+import { environment } from '../../../../../environments/environment';
+import { AlertComponent } from '../../../../shared/components/alert/alert.component';
+import { Sex } from '../../../../core/models/enums/sex-enum';
+>>>>>>> Stashed changes
 
 interface Patient {
   nombre: string;
@@ -67,7 +73,7 @@ export class PatientsTableComponent implements OnInit {
   }
 
   getGender(sex: string): string {
-    return sex === sex ? 'Masculino' : 'Femenino';
+    return sex === Sex.Masculino ? 'Masculino' : 'Femenino';
   }
 
   getScholarGrade(scholarGrade: number): string {
