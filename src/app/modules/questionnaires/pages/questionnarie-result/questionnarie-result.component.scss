@@ -1,9 +1,10 @@
 .questions-container {
-    height: 850px;
+    height: auto;
+    max-height: 550px;
+    height: 950px;
     overflow-y: auto;
 }
 
 #questions-responses {
     border-radius: 20px;
-    height: auto;
 }
