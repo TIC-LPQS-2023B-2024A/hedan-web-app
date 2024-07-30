@@ -358,3 +358,39 @@ input[type="radio"] {
 .info-icon:hover .info-text {
   display: block;
 }
+
+/* Alert Styles */
+.alert {
+  padding: 20px;
+  background-color: $danger-color;
+  color: $light-color;
+  font-weight: bold;
+  margin-bottom: 15px;
+
+  &.success {
+    background-color: $success-color;
+  }
+
+  &.info {
+    background-color: $info-color;
+  }
+
+  &.warning {
+    background-color: $warning-color;
+  }
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      color: black;
+    }
+  }
+}

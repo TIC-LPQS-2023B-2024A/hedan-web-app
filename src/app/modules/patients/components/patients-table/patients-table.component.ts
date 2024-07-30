@@ -1,15 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SessionService } from '../../../../core/services/auth/session.service';
 import { RouterLink } from '@angular/router';
 import { TestSessionDto } from '../../../../core/models/dtos/questionnaires/test-session-dto';
 import { QuestionnairesService } from '../../../../core/services/questionnaires/questionnaires.service';
-<<<<<<< Updated upstream
-=======
 import { environment } from '../../../../../environments/environment';
 import { AlertComponent } from '../../../../shared/components/alert/alert.component';
 import { Sex } from '../../../../core/models/enums/sex-enum';
->>>>>>> Stashed changes
 
 interface Patient {
   nombre: string;
@@ -22,14 +19,17 @@ interface Patient {
 @Component({
   selector: 'app-patients-table',
   standalone: true,
-  imports: [CommonModule, RouterLink],
   templateUrl: './patients-table.component.html',
   styleUrl: './patients-table.component.scss',
+  imports: [CommonModule, RouterLink, AlertComponent],
 })
 export class PatientsTableComponent implements OnInit {
   patients: TestSessionDto[] = [];
   filteredPatients: TestSessionDto[] = [];
   private _psychologistCedula = '';
+  alertMessage: string | null = null;
+  alertType: 'success' | 'danger' = 'danger';
+  @ViewChild('alert') alert!: AlertComponent;
 
   constructor(
     private sessionService: SessionService,
@@ -39,7 +39,6 @@ export class PatientsTableComponent implements OnInit {
   ngOnInit(): void {
     this._psychologistCedula = this.sessionService.userData?.cedula ?? '';
     this.getPatients();
-    
   }
 
   scholarGradeMap: { [key: number]: string } = {
@@ -56,8 +55,6 @@ export class PatientsTableComponent implements OnInit {
         next: (data) => {
           this.patients = data;
           this.filteredPatients = this.patients;
-
-          console.log('Resultados:', data);
         },
         error: (error) => {
           console.log('Error al obtener los resultados:', error);
@@ -94,6 +91,45 @@ export class PatientsTableComponent implements OnInit {
 
     return `${day} ${month} ${year} - ${hours}:${minutes}`;
   }
-  
-  
+
+  copyInvitationLink(testToken: string): void {
+    const invitationLink = `${environment.gameUrl}/?token=${testToken}`;
+    navigator.clipboard
+      .writeText(invitationLink)
+      .then(() => {
+        this.alertMessage = 'Enlace copiado al portapapeles';
+        this.alertType = 'success';
+        this.alert.showAlert();
+      })
+      .catch((err) => {
+        this.alertMessage = 'Error al copiar el enlace ' + err.message;
+        this.alertType = 'danger';
+        this.alert.showAlert();
+      });
+  }
+
+  deleteTestSession(testId: number): void {
+    if (!confirm('¿Seguro que quieres borrar este test?')) return;
+    this.questionnariesService
+      .deleteTestSession(testId, this._psychologistCedula)
+      .subscribe({
+        next: (success) => {
+          if (success) {
+            this.getPatients();
+            this.alertMessage = 'Test borrado con éxito';
+            this.alertType = 'success';
+            this.alert.showAlert();
+          } else {
+            this.alertMessage = 'Error al borrar el test';
+            this.alertType = 'danger';
+            this.alert.showAlert();
+          }
+        },
+        error: (error) => {
+          this.alertMessage = 'Error al borrar el test: ' + error.message;
+          this.alertType = 'danger';
+          this.alert.showAlert();
+        },
+      });
+  }
 }
